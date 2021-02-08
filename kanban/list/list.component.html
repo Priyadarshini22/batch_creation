@@ -1,0 +1,131 @@
+<div class="container-fluid"> 
+   <div class="jumbotron">
+  <div class=.col-sm > 
+  <div class="card bg-light-blue">
+<div class="card-header bg-purple" ><b>Create New Batch</b>
+  <button type="submit" class="float-right btn btn-light" style="width:6rem;"(click)='ontitle()'>Save</button> 
+  <button type="submit" class="float-right btn btn-light" style="width:6rem;"(click)='onclear()'>Cancel</button> 
+</div> 
+
+<div class="card-body"> 
+<form  [formGroup]="registerForm">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control"  type="text" formControlName="title" placeholder="Enter Batch name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" type="text" formControlName="batch_id" placeholder="Enter Batch ID">
+    </div> 
+  <!-- <div class="col">
+    <button type="submit" class="btn btn-success mb-9" (click)='ontitle()'>Save</button> 
+    <button type="submit" class="btn btn-success mb-9" (click)='onclear()'>Cancel</button> 
+
+    </div> --> 
+    </div>
+</form>
+<!-- <form [formGroup]="registerForm"> 
+    <div class="form-group row"  style="width: 70rem;"> 
+      <div class="col"  >
+        <!-- <label for="title">First Name</label> -->
+  <!-- <input type="text" id="title" name="fname"> -->
+      <!-- <input class="form-control" type="text" formControlName="title" placeholder="Enter Batch Name ">   -->
+    <!-- </div>  
+    <div class="col">
+    
+      <input class="form-control" type="text" formControlName="batch_id" placeholder="Enter Batch ID "> 
+    </div>
+
+    <div class="col" >
+      <button class="btn btn-success pull-center" (click)='ontitle()' >Create</button>
+    </div>   
+    </div>   
+    </form>   -->  
+  <br>
+    <div class="form-row">
+      <div class="col-sm-2 col-form-label" style="width: 20rem;">
+      <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search"> 
+      </div>
+    </div>  
+
+    <div class="root">
+    <div class="board">
+    <div class="board-wrapper">
+    <div class="board-columns" cdkDropListGroup>
+    <div class="board-column" *ngFor="let element of data">
+              <div class="column-title"  >
+               {{element.title}}  
+              </div>   
+            
+            <div class="tasks-container"
+              cdkDropList
+              [cdkDropListData]="element.members" 
+              (cdkDropListDropped)="drop($event)" >     
+              <!-- <div cdkDropList id='delete'(cdkDropListDropped)="drop($event)" >
+            <div cdkDropList id='listX' (cdkDropListDropped)="drop($event)" > -->
+              <div class="task" *ngFor="let item of element.members | searchPipe : searchText" cdkDrag> 
+               {{item.name}}
+              </div>  
+          </div>
+            <!-- <div class="column-title"  >
+              <div class="batch" *ngFor="let item1 of element.batch">
+             
+                {{item1.batchId}}
+               
+              </div>
+             </div>
+           <div class="tasks-container"
+             cdkDropList
+             [cdkDropListData]="element.name"
+             (cdkDropListDropped)="drop($event)" >     
+             <div class="task" *ngFor="let item of  element.batch | filter : terms" cdkDrag> 
+               {{item.batchId}}     
+                
+             </div> 
+           </div>   -->
+    </div>
+    
+          </div>
+    
+        </div>
+    
+      </div>
+    </div> 
+    <div class="text-center" >
+      <button class="btn btn-success pull-center" (click)='onSubmit()' >View</button>
+    </div>   
+    
+<!--     
+    <table class="table"   *ngIf="list_data?.length">
+    
+      <thead>
+    
+        <tr>  
+          <th>Batch_Name</th>
+          <th>Batch_ID</th>
+          <th>Name</th>
+          <th>Id</th>
+          <th>Email</th> 
+          <th>COntact</th> 
+        </tr>
+      </thead>
+      <tbody  *ngFor="let element of list_data">
+      
+        
+        <tr *ngFor="let item of element.members"> 
+          <td>{{element.title}}</td>
+           <td>{{element.batch_id}}</td> 
+           <td>{{item.name}}</td> 
+          <td>{{item.memberId}}</td>
+          <td>{{item.email}}</td> 
+          <td>{{item.contactNo}}</td>
+          
+        </tr>  
+      </tbody> 
+    
+    
+    </table>  -->
+    
+
+</div></div></div>  </div> </div>
+ <!-- <router-outlet></router-outlet> -->
+    <!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,37 @@
+<table class="table table-striped"   *ngIf="list_data?.length">
+    
+  <thead>
+
+    <tr>  
+      <th>Batch_Name</th>
+      <th>Batch_ID</th> 
+      <th>No. of Students</th>
+      <!-- <th>Name</th>
+      <th>Id</th>
+      <th>Email</th> 
+      <th>COntact</th>  -->
+    </tr>
+  </thead> 
+
+  <tbody  *ngFor="let element of list_data">
+  
+    <tr>
+      <td>{{element.title}}</td>
+       <td>{{element.batch_id}}</td>  
+       <td>{{element.count}}</td>
+    </tr>
+    <!-- <tr *ngFor="let item of element.members"> 
+      <td>{{element.title}}</td>
+       <td>{{element.batch_id}}</td>  
+       <td>{{item.name}}</td> 
+      <td>{{item.memberId}}</td>
+      <td>{{item.email}}</td> 
+      <td>{{item.contactNo}}</td>
+      
+    </tr>   -->
+  </tbody> 
+
+
+</table> 
+<!--  -->
+<!--*-->
